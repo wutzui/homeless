@@ -1,0 +1,43 @@
+body {
+ font-family: 'Slabo 27px', serif;
+ letter-spacing: 2px;
+ text-align: center;
+ background-color: #211E1F;
+ color: white;
+
+}
+
+a {
+	margin-left: 60px;
+	text-decoration: none;
+	color: white;
+	font-size: 13px;
+}
+
+a:hover {
+	color: #A690A0;
+}
+
+canvas {
+	position: absolute;
+	margin: 20px 20px;
+	left: 10px;
+}
+
+#js-legend {
+	float: right;
+	margin-right: 15px;
+}
+
+.chart-legend li {
+	list-style-type: none;
+}
+
+.chart-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-top: 15px;
+    margin-right: 5px;
+
+}

@@ -1,0 +1,208 @@
+ <!-- Empty Example -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+    <title>Homeless People in US from 2000-2015</title>	
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <h1>Homeless People in US from 2000-2015</h1>
+    <a href="http://www.coalitionforthehomeless.org/wp-content/uploads/2014/04/NYCHomelessShelterPopulationWorksheet1983-Present_Dec2015.pdf">Data source: www.coalitionforthehomeless.org</a>
+
+	<canvas id="myChart-a" width="1150" height="550"></canvas>
+	<div id="js-legend" class="chart-legend"></div>
+
+	<script src="js/Chart.js"></script>
+
+
+	<script>
+	var data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [
+        {
+            label: "2015",
+             fillColor: "rgba(166,20,48,0.03)",
+            strokeColor: "rgba(166,20,48,1)",
+            pointColor: "rgba(166,20,48,1)",
+            pointStrokeColor: "rgba(166,20,48,0.5)",
+            pointHighlightFill: "rgba(166,20,48,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [12712, 13022, 13199, 13107, 13060, 13174, 13232, 13333, 13506, 13743, 13947, 14068]
+        },    
+
+        {   label: "2014",
+             fillColor: "rgba(249,27,66,0.03)",
+            strokeColor: "rgba(249,27,66,1)",
+            pointColor: "rgba(249,27,66,1)",
+            pointStrokeColor: "rgba(249,27,66,0.5)",
+            pointHighlightFill: "rgba(249,27,66,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [11352, 11471, 11469, 11523, 11502, 11486, 11595, 11691, 11933, 12165, 12326, 12464]
+        },
+
+        {   label: "2013",
+            fillColor: "rgba(249,63,64,0.03)",
+            strokeColor: "rgba(249,63,64,1)",
+            pointColor: "rgba(249,63,64,1)",
+            pointStrokeColor: "rgba(249,63,64,0.5)",
+            pointHighlightFill: "rgba(249,63,64,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [10840, 11064, 11039, 11027, 11031, 11000, 10937, 10930, 11044, 11105, 11108, 11169]
+        },   
+
+        {   label: "2012",
+             fillColor: "rgba(249,101,64,0.03)",
+            strokeColor: "rgba(249,101,64,1)",
+            pointColor: "rgba(249,101,64,1)",
+            pointStrokeColor: "rgba(249,101,64,0.5)",
+            pointHighlightFill: "rgba(249,101,64,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [9955, 10045, 10018, 10048, 10072, 10101, 10149, 10297, 10449, 10468, 10471, 10699]
+        },
+
+        {   label: "2011",
+             fillColor: "rgba(249,147,78,0.03)",
+            strokeColor: "rgba(249,147,78,1)",
+            pointColor: "rgba(249,147,78,1)",
+            pointStrokeColor: "rgba(249,147,78,0.5)",
+            pointHighlightFill: "rgba(249,147,78,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [9858, 9953, 9947, 9728, 9534, 9431, 8995, 9032, 9258, 9575, 9739, 9782]
+        },
+
+        {   label: "2010",
+             fillColor: "rgba(249,183,78,0.03)",
+            strokeColor: "rgba(249,183,78,1)",
+            pointColor: "rgba(249,183,78,1)",
+            pointStrokeColor: "rgba(249,183,78,0.5)",
+            pointHighlightFill: "rgba(249,183,78,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [7963, 8238, 8328, 8294, 8312, 8382, 8771, 8938, 9157, 9392, 9533, 9627]
+        },
+     
+        {   label: "2009",
+             fillColor: "rgba(249,209,78,0.03)",
+            strokeColor: "rgba(249,209,78,1)",
+            pointColor: "rgba(249,209,78,1)",
+            pointStrokeColor: "rgba(249,209,78,0.5)",
+            pointHighlightFill: "rgba(249,209,78,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [7173, 7281, 7334, 7366, 7319, 7387, 7393, 7405, 7513, 7603, 7653, 7703]
+        },
+
+        {   label: "2008",
+             fillColor: "rgba(249,235,110,0.03)",
+            strokeColor: "rgba(249,235,110,1)",
+            pointColor: "rgba(249,235,110,1)",
+            pointStrokeColor: "rgba(249,235,110,0.5)",
+            pointHighlightFill: "rgba(249,235,110,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [6923, 6988, 6976, 6926, 6763, 6645, 6649, 6730, 6879, 6922, 6954, 6939]
+        },
+
+        {   label: "2007",
+             fillColor: "rgba(255,244,176,0.03)",
+            strokeColor: "rgba(255,244,176,1)",
+            pointColor: "rgba(255,244,176,1)",
+            pointStrokeColor: "rgba(255,244,176,0.5)",
+            pointHighlightFill: "rgba(255,244,176,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [7312, 7268, 7254, 7185, 7059, 6813, 6765, 6762, 6794, 6892, 6876, 6897]
+        },
+
+        {   label: "2006",
+             fillColor: "rgba(117,222,87,0.03)",
+            strokeColor: "rgba(117,222,87,1)",
+            pointColor: "rgba(117,222,87,1)",
+            pointStrokeColor: "rgba(117,222,87,0.5)",
+            pointHighlightFill: "rgba(117,222,87,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [8133, 8095, 8085, 8016, 7849, 7520, 7392, 7365, 7398, 7422, 7379, 7282]
+        },
+
+        {   label: "2005",
+             fillColor: "rgba(103,244,181,0.03)",
+            strokeColor: "rgba(103,244,181,1)",
+            pointColor: "rgba(103,244,181,1)",
+            pointStrokeColor: "rgba(103,244,181,0.5)",
+            pointHighlightFill: "rgba(103,244,181,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [8814, 8646, 8612, 8422, 8204, 7976, 7839, 7812, 7775, 7942, 7988, 8084]
+        },
+ 
+        {   label: "2004",
+             fillColor: "rgba(71,221,181,0.03)",
+            strokeColor: "rgba(71,221,181,1)",
+            pointColor: "rgba(71,221,181,1)",
+            pointStrokeColor: "rgba(71,221,181,0.5)",
+            pointHighlightFill: "rgba(71,221,181,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [8698, 8861, 8867, 8794, 8648, 8432, 8372, 8386, 8464, 8511, 8618, 8650]
+        },
+ 
+       {   label: "2003",
+             fillColor: "rgba(71,221,235,0.03)",
+            strokeColor: "rgba(71,221,235,1)",
+            pointColor: "rgba(71,221,235,1)",
+            pointStrokeColor: "rgba(71,221,235,0.5)",
+            pointHighlightFill: "rgba(71,221,235,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [8136, 8237, 8265, 8326, 8254, 8137, 8000, 7951, 8089, 8210, 8351, 8443]
+        },
+ 
+        {   label: "2002",
+             fillColor: "rgba(71,193,229,0.03)",
+            strokeColor: "rgba(71,193,229,1)",
+            pointColor: "rgba(71,193,229,1)",
+            pointStrokeColor: "rgba(71,193,229,0.5)",
+            pointHighlightFill: "rgba(71,193,229,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [7867, 7914, 7959, 7851, 7722, 7557, 7505, 7467, 7653, 7741, 7857, 7968]
+        },
+  
+        {   label: "2001",
+             fillColor: "rgba(66,162,229,0.03)",
+            strokeColor: "rgba(66,162,229,1)",
+            pointColor: "rgba(66,162,229,1)",
+            pointStrokeColor: "rgba(66,162,229,0.5)",
+            pointHighlightFill: "rgba(66,162,229,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [7382, 7462, 7505, 7505, 7424, 7393, 7385, 7440, 7424, 7572, 5756, 7681]
+        },
+ 
+        {   label: "2000",
+            fillColor: "rgba(66,117,244,0.03)",
+            strokeColor: "rgba(66,117,244,1)",
+            pointColor: "rgba(66,117,244,1)",
+            pointStrokeColor: "rgba(66,117,244,0.5)",
+            pointHighlightFill: "rgba(66,117,244,0.5)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [6902, 7039, 7026, 6953 , 6867, 6814, 6794, 6790, 6834, 6894, 7032, 7245]
+        },
+
+    ]
+};
+
+			var ctx = document.getElementById("myChart-a").getContext("2d");
+			var myNewChart = new Chart(ctx).Line(data,{
+                showTooltips: true,
+                scaleShowLabels: true,
+                datasetStrokeWidth : 1,
+                scaleGridLineColor : "rgba(166,144,120,0.05)",
+            });
+
+            document.getElementById('js-legend').innerHTML = myNewChart .generateLegend();
+
+	</script>
+
+
+</body>
+
+</html>
